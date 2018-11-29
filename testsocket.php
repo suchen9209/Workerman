@@ -2,13 +2,14 @@
 require_once __DIR__ . '/vendor/autoload.php';
 use Workerman\Worker;
 
+global $ws_worker;
 // Create a Websocket server
 $ws_worker = new Worker("websocket://0.0.0.0:2346");
 
 // 4 processes
 $ws_worker->count = 1;
 
-$ws_worker->onWorkerStart = function($ws_worker)
+$ws_worker->onWorkerStart = function()use($ws_worker)
 {
 	$inner_text_worker = new Worker('Text://0.0.0.0:2347');
 	$inner_text_worker->onMessage = function($connection, $buffer)
