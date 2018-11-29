@@ -8,8 +8,8 @@ $context = array(
     // 更多ssl选项请参考手册 http://php.net/manual/zh/context.ssl.php
     'ssl' => array(
         // 请使用绝对路径
-        'local_cert'                 => '/usr/local/nginx/conf/cert/1540503872600.pem', // 也可以是crt文件
-        'local_pk'                   => '/usr/local/nginx/conf/cert/1540503872600.key',
+        'local_cert'                 => '/usr/local/nginx/conf/cert/1540508248174.pem', // 也可以是crt文件
+        'local_pk'                   => '/usr/local/nginx/conf/cert/1540508248174.key',
         'verify_peer'                => false,
         // 'allow_self_signed' => true, //如果是自签名证书需要开启此选项
     )
