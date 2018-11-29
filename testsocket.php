@@ -9,11 +9,12 @@ $ws_worker = new Worker("websocket://0.0.0.0:2346");
 // 4 processes
 $ws_worker->count = 1;
 
-$ws_worker->onWorkerStart = function()use($ws_worker)
+$ws_worker->onWorkerStart = function()
 {
 	$inner_text_worker = new Worker('Text://0.0.0.0:2347');
 	$inner_text_worker->onMessage = function($connection, $buffer)
     {
+    	global $ws_worker;
 		foreach($ws_worker->connections as $c)
 	    {
 	        $c->send($buffer);
