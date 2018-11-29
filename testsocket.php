@@ -19,7 +19,7 @@ $ws_worker->onWorkerStart = function($ws_worker)
 	    }
     };
     $inner_text_worker->listen();
-}
+};
 
 // Emitted when new connection come
 $ws_worker->onConnect = function($connection)
