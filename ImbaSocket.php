@@ -16,7 +16,7 @@ $context = array(
     )
 );
 // Create a Websocket server
-$ws_worker = new Worker("websocket://0.0.0.0:2346",$context);
+$ws_worker = new Worker("websocket://0.0.0.0:10444",$context);
 $ws_worker->transport = 'ssl';
 
 // 4 processes
@@ -24,7 +24,7 @@ $ws_worker->count = 1;
 
 $ws_worker->onWorkerStart = function()
 {
-	$inner_text_worker = new Worker('Text://0.0.0.0:2347');
+	$inner_text_worker = new Worker('Text://0.0.0.0:10445');
 	$inner_text_worker->onMessage = function($connection, $buffer)
     {
     	global $ws_worker;
